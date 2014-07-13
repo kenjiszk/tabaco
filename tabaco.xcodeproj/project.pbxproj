@@ -1,0 +1,560 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		88AA30011972A02E00F4B40C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AA30001972A02E00F4B40C /* Parse.framework */; };
+		88AA30041972A12100F4B40C /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 88AA30031972A12100F4B40C /* Config.m */; };
+		88AA300E1972AC9600F4B40C /* CommunicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88AA300D1972AC9600F4B40C /* CommunicationViewController.m */; };
+		88B18BCE19305FC900ED630C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88B18BCD19305FC900ED630C /* Foundation.framework */; };
+		88B18BD019305FC900ED630C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88B18BCF19305FC900ED630C /* CoreGraphics.framework */; };
+		88B18BD219305FC900ED630C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88B18BD119305FC900ED630C /* UIKit.framework */; };
+		88B18BD819305FCA00ED630C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 88B18BD619305FCA00ED630C /* InfoPlist.strings */; };
+		88B18BDA19305FCA00ED630C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B18BD919305FCA00ED630C /* main.m */; };
+		88B18BDE19305FCA00ED630C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B18BDD19305FCA00ED630C /* AppDelegate.m */; };
+		88B18BE119305FCA00ED630C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88B18BDF19305FCA00ED630C /* Main.storyboard */; };
+		88B18BE419305FCA00ED630C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B18BE319305FCA00ED630C /* ViewController.m */; };
+		88B18BE619305FCA00ED630C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88B18BE519305FCA00ED630C /* Images.xcassets */; };
+		88B18BED19305FCA00ED630C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88B18BEC19305FCA00ED630C /* XCTest.framework */; };
+		88B18BEE19305FCA00ED630C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88B18BCD19305FC900ED630C /* Foundation.framework */; };
+		88B18BEF19305FCA00ED630C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88B18BD119305FC900ED630C /* UIKit.framework */; };
+		88B18BF719305FCA00ED630C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 88B18BF519305FCA00ED630C /* InfoPlist.strings */; };
+		88B18BF919305FCA00ED630C /* tabacoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B18BF819305FCA00ED630C /* tabacoTests.m */; };
+		88B18C0719308C7400ED630C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 88B18C0519308C7400ED630C /* Model.xcdatamodeld */; };
+		88B18C0919308D6700ED630C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88B18C0819308D6600ED630C /* CoreData.framework */; };
+		88B18C0C1930915800ED630C /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B18C0B1930915800ED630C /* Entity.m */; };
+		88B18C0F193091CF00ED630C /* EntityDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B18C0E193091CF00ED630C /* EntityDAO.m */; };
+		88B18C5D1934D9AD00ED630C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88B18C5C1934D9AD00ED630C /* AudioToolbox.framework */; };
+		88B18C5F1934D9B900ED630C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88B18C5E1934D9B900ED630C /* CFNetwork.framework */; };
+		88B18C611934D9C500ED630C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88B18C601934D9C500ED630C /* SystemConfiguration.framework */; };
+		88B18C631934D9D000ED630C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88B18C621934D9D000ED630C /* MobileCoreServices.framework */; };
+		88B18C651934D9E600ED630C /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 88B18C641934D9E600ED630C /* libz.1.1.3.dylib */; };
+		88B18C671934D9EF00ED630C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88B18C661934D9EF00ED630C /* Security.framework */; };
+		88B18C691934D9F600ED630C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88B18C681934D9F600ED630C /* QuartzCore.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		88B18BF019305FCA00ED630C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 88B18BC219305FC900ED630C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 88B18BC919305FC900ED630C;
+			remoteInfo = tabaco;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		88AA30001972A02E00F4B40C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		88AA30021972A12100F4B40C /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		88AA30031972A12100F4B40C /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
+		88AA300C1972AC9600F4B40C /* CommunicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunicationViewController.h; sourceTree = "<group>"; };
+		88AA300D1972AC9600F4B40C /* CommunicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunicationViewController.m; sourceTree = "<group>"; };
+		88B18BCA19305FC900ED630C /* tabaco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tabaco.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		88B18BCD19305FC900ED630C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		88B18BCF19305FC900ED630C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		88B18BD119305FC900ED630C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		88B18BD519305FCA00ED630C /* tabaco-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "tabaco-Info.plist"; sourceTree = "<group>"; };
+		88B18BD719305FCA00ED630C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		88B18BD919305FCA00ED630C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		88B18BDB19305FCA00ED630C /* tabaco-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "tabaco-Prefix.pch"; sourceTree = "<group>"; };
+		88B18BDC19305FCA00ED630C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		88B18BDD19305FCA00ED630C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		88B18BE019305FCA00ED630C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		88B18BE219305FCA00ED630C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		88B18BE319305FCA00ED630C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		88B18BE519305FCA00ED630C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		88B18BEB19305FCA00ED630C /* tabacoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tabacoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		88B18BEC19305FCA00ED630C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		88B18BF419305FCA00ED630C /* tabacoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "tabacoTests-Info.plist"; sourceTree = "<group>"; };
+		88B18BF619305FCA00ED630C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		88B18BF819305FCA00ED630C /* tabacoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = tabacoTests.m; sourceTree = "<group>"; };
+		88B18C0619308C7400ED630C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		88B18C0819308D6600ED630C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		88B18C0A1930915800ED630C /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Entity.h; path = ../Entity.h; sourceTree = "<group>"; };
+		88B18C0B1930915800ED630C /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Entity.m; path = ../Entity.m; sourceTree = "<group>"; };
+		88B18C0D193091CF00ED630C /* EntityDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityDAO.h; sourceTree = "<group>"; };
+		88B18C0E193091CF00ED630C /* EntityDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityDAO.m; sourceTree = "<group>"; };
+		88B18C5C1934D9AD00ED630C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		88B18C5E1934D9B900ED630C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		88B18C601934D9C500ED630C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		88B18C621934D9D000ED630C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		88B18C641934D9E600ED630C /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
+		88B18C661934D9EF00ED630C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		88B18C681934D9F600ED630C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		88B18BC719305FC900ED630C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88B18C691934D9F600ED630C /* QuartzCore.framework in Frameworks */,
+				88B18C671934D9EF00ED630C /* Security.framework in Frameworks */,
+				88B18C651934D9E600ED630C /* libz.1.1.3.dylib in Frameworks */,
+				88B18BD019305FC900ED630C /* CoreGraphics.framework in Frameworks */,
+				88B18C631934D9D000ED630C /* MobileCoreServices.framework in Frameworks */,
+				88B18C611934D9C500ED630C /* SystemConfiguration.framework in Frameworks */,
+				88B18C5F1934D9B900ED630C /* CFNetwork.framework in Frameworks */,
+				88B18C5D1934D9AD00ED630C /* AudioToolbox.framework in Frameworks */,
+				88B18C0919308D6700ED630C /* CoreData.framework in Frameworks */,
+				88B18BD219305FC900ED630C /* UIKit.framework in Frameworks */,
+				88AA30011972A02E00F4B40C /* Parse.framework in Frameworks */,
+				88B18BCE19305FC900ED630C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88B18BE819305FCA00ED630C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88B18BED19305FCA00ED630C /* XCTest.framework in Frameworks */,
+				88B18BEF19305FCA00ED630C /* UIKit.framework in Frameworks */,
+				88B18BEE19305FCA00ED630C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		88B18BC119305FC900ED630C = {
+			isa = PBXGroup;
+			children = (
+				88B18BD319305FC900ED630C /* tabaco */,
+				88B18BF219305FCA00ED630C /* tabacoTests */,
+				88B18BCC19305FC900ED630C /* Frameworks */,
+				88B18BCB19305FC900ED630C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		88B18BCB19305FC900ED630C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				88B18BCA19305FC900ED630C /* tabaco.app */,
+				88B18BEB19305FCA00ED630C /* tabacoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		88B18BCC19305FC900ED630C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				88AA30001972A02E00F4B40C /* Parse.framework */,
+				88B18C681934D9F600ED630C /* QuartzCore.framework */,
+				88B18C661934D9EF00ED630C /* Security.framework */,
+				88B18C641934D9E600ED630C /* libz.1.1.3.dylib */,
+				88B18C621934D9D000ED630C /* MobileCoreServices.framework */,
+				88B18C601934D9C500ED630C /* SystemConfiguration.framework */,
+				88B18C5E1934D9B900ED630C /* CFNetwork.framework */,
+				88B18C5C1934D9AD00ED630C /* AudioToolbox.framework */,
+				88B18C0819308D6600ED630C /* CoreData.framework */,
+				88B18BCD19305FC900ED630C /* Foundation.framework */,
+				88B18BCF19305FC900ED630C /* CoreGraphics.framework */,
+				88B18BD119305FC900ED630C /* UIKit.framework */,
+				88B18BEC19305FCA00ED630C /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		88B18BD319305FC900ED630C /* tabaco */ = {
+			isa = PBXGroup;
+			children = (
+				88B18C0A1930915800ED630C /* Entity.h */,
+				88B18C0B1930915800ED630C /* Entity.m */,
+				88B18BDC19305FCA00ED630C /* AppDelegate.h */,
+				88B18BDD19305FCA00ED630C /* AppDelegate.m */,
+				88B18BDF19305FCA00ED630C /* Main.storyboard */,
+				88B18C0519308C7400ED630C /* Model.xcdatamodeld */,
+				88B18BE219305FCA00ED630C /* ViewController.h */,
+				88B18BE319305FCA00ED630C /* ViewController.m */,
+				88B18BE519305FCA00ED630C /* Images.xcassets */,
+				88B18BD419305FCA00ED630C /* Supporting Files */,
+				88B18C0D193091CF00ED630C /* EntityDAO.h */,
+				88B18C0E193091CF00ED630C /* EntityDAO.m */,
+				88AA30021972A12100F4B40C /* Config.h */,
+				88AA30031972A12100F4B40C /* Config.m */,
+				88AA300C1972AC9600F4B40C /* CommunicationViewController.h */,
+				88AA300D1972AC9600F4B40C /* CommunicationViewController.m */,
+			);
+			path = tabaco;
+			sourceTree = "<group>";
+		};
+		88B18BD419305FCA00ED630C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				88B18BD519305FCA00ED630C /* tabaco-Info.plist */,
+				88B18BD619305FCA00ED630C /* InfoPlist.strings */,
+				88B18BD919305FCA00ED630C /* main.m */,
+				88B18BDB19305FCA00ED630C /* tabaco-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		88B18BF219305FCA00ED630C /* tabacoTests */ = {
+			isa = PBXGroup;
+			children = (
+				88B18BF819305FCA00ED630C /* tabacoTests.m */,
+				88B18BF319305FCA00ED630C /* Supporting Files */,
+			);
+			path = tabacoTests;
+			sourceTree = "<group>";
+		};
+		88B18BF319305FCA00ED630C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				88B18BF419305FCA00ED630C /* tabacoTests-Info.plist */,
+				88B18BF519305FCA00ED630C /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		88B18BC919305FC900ED630C /* tabaco */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88B18BFC19305FCA00ED630C /* Build configuration list for PBXNativeTarget "tabaco" */;
+			buildPhases = (
+				88B18BC619305FC900ED630C /* Sources */,
+				88B18BC719305FC900ED630C /* Frameworks */,
+				88B18BC819305FC900ED630C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = tabaco;
+			productName = tabaco;
+			productReference = 88B18BCA19305FC900ED630C /* tabaco.app */;
+			productType = "com.apple.product-type.application";
+		};
+		88B18BEA19305FCA00ED630C /* tabacoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88B18BFF19305FCA00ED630C /* Build configuration list for PBXNativeTarget "tabacoTests" */;
+			buildPhases = (
+				88B18BE719305FCA00ED630C /* Sources */,
+				88B18BE819305FCA00ED630C /* Frameworks */,
+				88B18BE919305FCA00ED630C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				88B18BF119305FCA00ED630C /* PBXTargetDependency */,
+			);
+			name = tabacoTests;
+			productName = tabacoTests;
+			productReference = 88B18BEB19305FCA00ED630C /* tabacoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		88B18BC219305FC900ED630C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = jp.babyry;
+				TargetAttributes = {
+					88B18BEA19305FCA00ED630C = {
+						TestTargetID = 88B18BC919305FC900ED630C;
+					};
+				};
+			};
+			buildConfigurationList = 88B18BC519305FC900ED630C /* Build configuration list for PBXProject "tabaco" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 88B18BC119305FC900ED630C;
+			productRefGroup = 88B18BCB19305FC900ED630C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				88B18BC919305FC900ED630C /* tabaco */,
+				88B18BEA19305FCA00ED630C /* tabacoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		88B18BC819305FC900ED630C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88B18BE619305FCA00ED630C /* Images.xcassets in Resources */,
+				88B18BD819305FCA00ED630C /* InfoPlist.strings in Resources */,
+				88B18BE119305FCA00ED630C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88B18BE919305FCA00ED630C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88B18BF719305FCA00ED630C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		88B18BC619305FC900ED630C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88AA30041972A12100F4B40C /* Config.m in Sources */,
+				88B18C0C1930915800ED630C /* Entity.m in Sources */,
+				88B18C0F193091CF00ED630C /* EntityDAO.m in Sources */,
+				88B18BE419305FCA00ED630C /* ViewController.m in Sources */,
+				88B18BDE19305FCA00ED630C /* AppDelegate.m in Sources */,
+				88AA300E1972AC9600F4B40C /* CommunicationViewController.m in Sources */,
+				88B18BDA19305FCA00ED630C /* main.m in Sources */,
+				88B18C0719308C7400ED630C /* Model.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88B18BE719305FCA00ED630C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88B18BF919305FCA00ED630C /* tabacoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		88B18BF119305FCA00ED630C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 88B18BC919305FC900ED630C /* tabaco */;
+			targetProxy = 88B18BF019305FCA00ED630C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		88B18BD619305FCA00ED630C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				88B18BD719305FCA00ED630C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		88B18BDF19305FCA00ED630C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				88B18BE019305FCA00ED630C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		88B18BF519305FCA00ED630C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				88B18BF619305FCA00ED630C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		88B18BFA19305FCA00ED630C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		88B18BFB19305FCA00ED630C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		88B18BFD19305FCA00ED630C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/kenjiszk/Downloads,
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "tabaco/tabaco-Prefix.pch";
+				INFOPLIST_FILE = "tabaco/tabaco-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		88B18BFE19305FCA00ED630C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/kenjiszk/Downloads,
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "tabaco/tabaco-Prefix.pch";
+				INFOPLIST_FILE = "tabaco/tabaco-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		88B18C0019305FCA00ED630C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/tabaco.app/tabaco";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "tabaco/tabaco-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "tabacoTests/tabacoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		88B18C0119305FCA00ED630C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/tabaco.app/tabaco";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "tabaco/tabaco-Prefix.pch";
+				INFOPLIST_FILE = "tabacoTests/tabacoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		88B18BC519305FC900ED630C /* Build configuration list for PBXProject "tabaco" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88B18BFA19305FCA00ED630C /* Debug */,
+				88B18BFB19305FCA00ED630C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		88B18BFC19305FCA00ED630C /* Build configuration list for PBXNativeTarget "tabaco" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88B18BFD19305FCA00ED630C /* Debug */,
+				88B18BFE19305FCA00ED630C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		88B18BFF19305FCA00ED630C /* Build configuration list for PBXNativeTarget "tabacoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88B18C0019305FCA00ED630C /* Debug */,
+				88B18C0119305FCA00ED630C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		88B18C0519308C7400ED630C /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				88B18C0619308C7400ED630C /* Model.xcdatamodel */,
+			);
+			currentVersion = 88B18C0619308C7400ED630C /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 88B18BC219305FC900ED630C /* Project object */;
+}

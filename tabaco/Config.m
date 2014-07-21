@@ -20,4 +20,14 @@
     return @"DzIEdpjn4Ki9gm3IAHoV8ErR5lkJJIW2oyCz3Av7";
 }
 
++ (NSString *) getNendID
+{
+    return @"875124560dab962783f4c01f84f20a7e4109d061";
+}
+
++ (NSString *) getSpotID
+{
+    return @"206169";
+}
+
 @end

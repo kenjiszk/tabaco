@@ -9,7 +9,6 @@
 #import "ViewController.h"
 #import "EntityDAO.h"
 #import "Entity.h"
-#import "AppDelegate.h"
 #import <Parse/Parse.h>
 #import "CommunicationViewController.h"
 
@@ -30,12 +29,33 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    self.nadView = [[NADView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 50, 320, 50)];
+    self.nadView.backgroundColor = [UIColor blackColor];
+    [self.nadView setIsOutputLog:NO];
+    [self.nadView setNendID:[Config getNendID] spotID:[Config getSpotID]];
+    [self.nadView setDelegate:self];
+    [self.nadView load];
+    [self.view addSubview:self.nadView]; 
+    
     self.centerCircle.layer.cornerRadius = 120.0f;
     self.smokeButton.layer.cornerRadius= 25.0f;
     [self.taxButton addTarget:self action:@selector(showTaxAlert:) forControlEvents:UIControlEventTouchDown];
     [self.smokeButton addTarget:self action:@selector(smokeTabaco:) forControlEvents:UIControlEventTouchDown];
     
     [self updateLabel];
+    
+    // コメント掲示板用のデータ先読み in background
+    _queryLimit = 1000;
+    PFQuery *commentQuery = [PFQuery queryWithClassName:@"Comments"];
+    [commentQuery orderByDescending:@"updatedAt"];
+    commentQuery.limit = _queryLimit;
+    [commentQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+        if(!error){
+            NSLog(@"successfuly got comment data in background.");
+            _commentsArray = [[objects reverseObjectEnumerator] allObjects];
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,7 +87,7 @@
         // 現在時刻取得
         NSDate *nowdate = [NSDate date];
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"yyyyMMmm"];
+        [formatter setDateFormat:@"yyyyMMdd"];
         NSString *today_str = [formatter stringFromDate:nowdate];
         int tmp = [today_str intValue];
         NSNumber *today_num = [NSNumber numberWithInt:tmp];
@@ -92,10 +112,14 @@
         [self updateLabel];
         
         //データをParseと同期
+        if (!delegate.userId){
+            delegate.userId = [dao getEntity:@"user_id"];
+            NSLog(@"updated as %@", delegate.userId);
+        }
         [self syncTaxData:delegate.userId today_tax:delegate.todayTax total_tax:delegate.totalTax];
         
         // タイマーセット
-        [NSTimer scheduledTimerWithTimeInterval:10.0f
+        [NSTimer scheduledTimerWithTimeInterval:180.0f // 3分間はスリープ
                     target:self
                     selector:@selector(resetSmokeButton:)
                     userInfo:nil
@@ -103,6 +127,7 @@
         ];
     } else {
         CommunicationViewController * communicationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"CommunicationViewController"];
+        communicationViewController.commentsArray = _commentsArray;
         [self presentViewController:communicationViewController animated:true completion:nil];
     }
 }

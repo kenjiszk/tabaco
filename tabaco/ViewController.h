@@ -8,8 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+#import "NADView.h"
+#import "Config.h"
 
-@interface ViewController : UIViewController {
+@interface ViewController : UIViewController<NADViewDelegate>
+{
 }
+
+@property (nonatomic, retain) NADView * nadView;
+
+@property NSArray *commentsArray;
+@property int queryLimit;
 
 @end

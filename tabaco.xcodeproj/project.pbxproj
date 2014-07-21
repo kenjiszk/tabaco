@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		885A223F197B8C630039B263 /* libNendAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 885A2239197B8C630039B263 /* libNendAd.a */; };
+		885A2240197B8C630039B263 /* NADView_readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 885A223E197B8C630039B263 /* NADView_readme.txt */; };
+		885A2242197B8C900039B263 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885A2241197B8C900039B263 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		885A2244197B8D090039B263 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885A2243197B8D090039B263 /* ImageIO.framework */; };
+		885A2246197CCF4A0039B263 /* Main_3_5.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 885A2245197CCF4A0039B263 /* Main_3_5.storyboard */; };
+		885A2249197CF38C0039B263 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 885A2248197CF38C0039B263 /* MBProgressHUD.m */; };
 		88AA30011972A02E00F4B40C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AA30001972A02E00F4B40C /* Parse.framework */; };
 		88AA30041972A12100F4B40C /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 88AA30031972A12100F4B40C /* Config.m */; };
 		88AA300E1972AC9600F4B40C /* CommunicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88AA300D1972AC9600F4B40C /* CommunicationViewController.m */; };
@@ -48,6 +54,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		885A2239197B8C630039B263 /* libNendAd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNendAd.a; sourceTree = "<group>"; };
+		885A223A197B8C630039B263 /* NADIconArrayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADIconArrayView.h; sourceTree = "<group>"; };
+		885A223B197B8C630039B263 /* NADIconLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADIconLoader.h; sourceTree = "<group>"; };
+		885A223C197B8C630039B263 /* NADIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADIconView.h; sourceTree = "<group>"; };
+		885A223D197B8C630039B263 /* NADView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADView.h; sourceTree = "<group>"; };
+		885A223E197B8C630039B263 /* NADView_readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NADView_readme.txt; sourceTree = "<group>"; };
+		885A2241197B8C900039B263 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		885A2243197B8D090039B263 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		885A2245197CCF4A0039B263 /* Main_3_5.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_3_5.storyboard; sourceTree = "<group>"; };
+		885A2247197CF38C0039B263 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		885A2248197CF38C0039B263 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		88AA30001972A02E00F4B40C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		88AA30021972A12100F4B40C /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		88AA30031972A12100F4B40C /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
@@ -92,8 +109,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				885A2244197B8D090039B263 /* ImageIO.framework in Frameworks */,
+				885A2242197B8C900039B263 /* AdSupport.framework in Frameworks */,
 				88B18C691934D9F600ED630C /* QuartzCore.framework in Frameworks */,
 				88B18C671934D9EF00ED630C /* Security.framework in Frameworks */,
+				885A223F197B8C630039B263 /* libNendAd.a in Frameworks */,
 				88B18C651934D9E600ED630C /* libz.1.1.3.dylib in Frameworks */,
 				88B18BD019305FC900ED630C /* CoreGraphics.framework in Frameworks */,
 				88B18C631934D9D000ED630C /* MobileCoreServices.framework in Frameworks */,
@@ -120,9 +140,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		885A2238197B8C630039B263 /* NendAd */ = {
+			isa = PBXGroup;
+			children = (
+				885A2239197B8C630039B263 /* libNendAd.a */,
+				885A223A197B8C630039B263 /* NADIconArrayView.h */,
+				885A223B197B8C630039B263 /* NADIconLoader.h */,
+				885A223C197B8C630039B263 /* NADIconView.h */,
+				885A223D197B8C630039B263 /* NADView.h */,
+				885A223E197B8C630039B263 /* NADView_readme.txt */,
+			);
+			path = NendAd;
+			sourceTree = "<group>";
+		};
 		88B18BC119305FC900ED630C = {
 			isa = PBXGroup;
 			children = (
+				885A2238197B8C630039B263 /* NendAd */,
 				88B18BD319305FC900ED630C /* tabaco */,
 				88B18BF219305FCA00ED630C /* tabacoTests */,
 				88B18BCC19305FC900ED630C /* Frameworks */,
@@ -142,6 +176,8 @@
 		88B18BCC19305FC900ED630C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				885A2243197B8D090039B263 /* ImageIO.framework */,
+				885A2241197B8C900039B263 /* AdSupport.framework */,
 				88AA30001972A02E00F4B40C /* Parse.framework */,
 				88B18C681934D9F600ED630C /* QuartzCore.framework */,
 				88B18C661934D9EF00ED630C /* Security.framework */,
@@ -162,6 +198,8 @@
 		88B18BD319305FC900ED630C /* tabaco */ = {
 			isa = PBXGroup;
 			children = (
+				885A2247197CF38C0039B263 /* MBProgressHUD.h */,
+				885A2248197CF38C0039B263 /* MBProgressHUD.m */,
 				88B18C0A1930915800ED630C /* Entity.h */,
 				88B18C0B1930915800ED630C /* Entity.m */,
 				88B18BDC19305FCA00ED630C /* AppDelegate.h */,
@@ -178,6 +216,7 @@
 				88AA30031972A12100F4B40C /* Config.m */,
 				88AA300C1972AC9600F4B40C /* CommunicationViewController.h */,
 				88AA300D1972AC9600F4B40C /* CommunicationViewController.m */,
+				885A2245197CCF4A0039B263 /* Main_3_5.storyboard */,
 			);
 			path = tabaco;
 			sourceTree = "<group>";
@@ -288,8 +327,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				88B18BE619305FCA00ED630C /* Images.xcassets in Resources */,
+				885A2246197CCF4A0039B263 /* Main_3_5.storyboard in Resources */,
 				88B18BD819305FCA00ED630C /* InfoPlist.strings in Resources */,
 				88B18BE119305FCA00ED630C /* Main.storyboard in Resources */,
+				885A2240197B8C630039B263 /* NADView_readme.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +353,7 @@
 				88B18C0C1930915800ED630C /* Entity.m in Sources */,
 				88B18C0F193091CF00ED630C /* EntityDAO.m in Sources */,
 				88B18BE419305FCA00ED630C /* ViewController.m in Sources */,
+				885A2249197CF38C0039B263 /* MBProgressHUD.m in Sources */,
 				88B18BDE19305FCA00ED630C /* AppDelegate.m in Sources */,
 				88AA300E1972AC9600F4B40C /* CommunicationViewController.m in Sources */,
 				88B18BDA19305FCA00ED630C /* main.m in Sources */,
@@ -448,6 +490,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "tabaco/tabaco-Prefix.pch";
 				INFOPLIST_FILE = "tabaco/tabaco-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/NendAd",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -466,6 +513,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "tabaco/tabaco-Prefix.pch";
 				INFOPLIST_FILE = "tabaco/tabaco-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/NendAd",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

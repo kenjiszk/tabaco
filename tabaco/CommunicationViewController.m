@@ -29,6 +29,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.nadView = [[NADView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 50, 320, 50)];
+    self.nadView.backgroundColor = [UIColor blackColor];
+    [self.nadView setIsOutputLog:NO];
+    [self.nadView setNendID:[Config getNendID] spotID:[Config getSpotID]];
+    [self.nadView setDelegate:self];
+    [self.nadView load];
+    [self.view addSubview:self.nadView];
+    
     _tableView.delegate = self;
     _tableView.dataSource = self;
     
@@ -38,11 +46,27 @@
     
     _defaultFieldY = _communicationView.frame.origin.y;
     
+    MBProgressHUD *hud;
+    if ([_commentsArray count] > 0) {
+        [_tableView reloadData];
+        NSIndexPath* indexPath = [NSIndexPath indexPathForRow:[_commentsArray count]-1 inSection:0];
+        [_tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+    } else {
+        hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.labelText = @"Wait a Moment...";
+        //hud.margin = 0;
+        //hud.labelFont = [UIFont fontWithName:@"HelveticaNeue-Thin" size:15];
+    }
+    
+    _queryLimit = 1000;
+    
     PFQuery *commentQuery = [PFQuery queryWithClassName:@"Comments"];
-    [commentQuery orderByAscending:@"updatedAt"];
+    [commentQuery orderByDescending:@"updatedAt"];
+    commentQuery.limit = _queryLimit;
     [commentQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
         if(!error){
-            _commentsArray = objects;
+            [hud hide:YES];
+            _commentsArray = [[objects reverseObjectEnumerator] allObjects];
             [_tableView reloadData];
             NSIndexPath* indexPath = [NSIndexPath indexPathForRow:[_commentsArray count]-1 inSection:0];
             [_tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
@@ -70,29 +94,38 @@
 - (IBAction)sendButton:(id)sender {
     AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     NSLog(@"send comment");
-    if (!_textField.text || ![_textField.text isEqualToString:@""])
-    NSLog(@"upload comment %@", _textField.text);
+    if (!_textView.text || ![_textView.text isEqualToString:@""]) {
+        NSLog(@"upload comment %@", _textView.text);
+        
+        PFObject *commentObject = [PFObject objectWithClassName:@"Comments"];
+        commentObject[@"commented_by"] = delegate.userId;
+        commentObject[@"comment"] = _textView.text;
+        
+        _commentsArray = [_commentsArray arrayByAddingObject:commentObject];
+        [_tableView reloadData];
+        [self.view endEditing:YES];
+        NSIndexPath* indexPath = [NSIndexPath indexPathForRow:[_commentsArray count]-1 inSection:0];
+        [_tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+        
+        [commentObject saveInBackgroundWithBlock:^(BOOL succeed, NSError *error) {
+            if(succeed) {
+                PFQuery *commentQuery2 = [PFQuery queryWithClassName:@"Comments"];
+                [commentQuery2 orderByDescending:@"updatedAt"];
+                commentQuery2.limit = _queryLimit;
+                [commentQuery2 findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+                    if(!error){
+                        _commentsArray = [[objects reverseObjectEnumerator] allObjects];
+                        [_tableView reloadData];
+                        [self.view endEditing:YES];
+                        NSIndexPath* indexPath = [NSIndexPath indexPathForRow:[_commentsArray count]-1 inSection:0];
+                        [_tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+                    }
+                }];
+            }
+        }];
+    }
     
-    PFObject *commentObject = [PFObject objectWithClassName:@"Comments"];
-    commentObject[@"commented_by"] = delegate.userId;
-    commentObject[@"comment"] = _textField.text;
-    [commentObject saveInBackgroundWithBlock:^(BOOL succeed, NSError *error) {
-        if(succeed) {
-            PFQuery *commentQuery2 = [PFQuery queryWithClassName:@"Comments"];
-            [commentQuery2 orderByAscending:@"updatedAt"];
-            [commentQuery2 findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
-                if(!error){
-                    _commentsArray = objects;
-                    [_tableView reloadData];
-                    [self.view endEditing:YES];
-                    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:[_commentsArray count]-1 inSection:0];
-                    [_tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
-                }
-            }];
-        }
-    }];
-    
-    _textField.text = @"";
+    _textView.text = @"";
 }
 
 - (IBAction)backButton:(id)sender {
@@ -190,13 +223,13 @@
 // indexPathの位置にあるセルを返す
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"cellForRowAtIndexPath");
+    //NSLog(@"cellForRowAtIndexPath");
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
     }
     cell.textLabel.numberOfLines = 0;
-    cell.textLabel.text = [NSString stringWithFormat:@"%@のコメント\n%@", [_commentsArray objectAtIndex:indexPath.row][@"commented_by"], [_commentsArray objectAtIndex:indexPath.row][@"comment"]];
+    cell.textLabel.text = [NSString stringWithFormat:@"ID : %@\n%@", [_commentsArray objectAtIndex:indexPath.row][@"commented_by"], [_commentsArray objectAtIndex:indexPath.row][@"comment"]];
     
     return cell;
 }
@@ -204,7 +237,7 @@
 // セルの高さをtextの高さに合わせる
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"heightForRowAtIndexPath");
+    //NSLog(@"heightForRowAtIndexPath");
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
@@ -215,10 +248,13 @@
     
     // get cell height
     CGSize bounds = CGSizeMake(tableView.frame.size.width, tableView.frame.size.height);
-    CGSize size = [cell.textLabel.text sizeWithFont:cell.textLabel.font constrainedToSize:bounds lineBreakMode:NSLineBreakByClipping];
-    CGSize detailSize = [cell.detailTextLabel.text sizeWithFont: cell.detailTextLabel.font constrainedToSize: bounds lineBreakMode: NSLineBreakByCharWrapping];
+    CGSize size = [cell.textLabel.text
+                   boundingRectWithSize:bounds
+                   options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading)
+                   attributes:[NSDictionary dictionaryWithObject:cell.textLabel.font forKey:NSFontAttributeName]
+                   context:nil].size;
     
-    return size.height + detailSize.height;
+    return size.height;
 }
 
 @end

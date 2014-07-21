@@ -22,6 +22,16 @@
 {
     // Override point for customization after application launch.
     
+    //3.5inchと4inchを読み分けする
+    CGRect rect = [UIScreen mainScreen].bounds;
+    NSLog(@"aaaaaa %f", rect.size.height);
+    if (rect.size.height == 480) {
+        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main_3_5" bundle:nil];
+        UIViewController* rootViewController = [storyboard instantiateInitialViewController];
+    
+        self.window.rootViewController = rootViewController;
+    }
+    
     // Parse
     [Parse setApplicationId:[Config getApplicationId] clientKey:[Config getClientKey]];
     

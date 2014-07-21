@@ -8,11 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "NADView.h"
+#import "Config.h"
+#import "MBProgressHUD.h"
 
-@interface CommunicationViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface CommunicationViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, NADViewDelegate>
+
+@property (nonatomic, retain) NADView * nadView;
+
 @property (strong, nonatomic) IBOutlet UIView *communicationView;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) IBOutlet UITextField *textField;
+@property (strong, nonatomic) IBOutlet UITextView *textView;
+//@property (strong, nonatomic) IBOutlet UITextField *textField;
 - (IBAction)sendButton:(id)sender;
 - (IBAction)backButton:(id)sender;
 
@@ -20,5 +27,7 @@
 @property int defaultFieldY;
 
 @property NSArray *commentsArray;
+
+@property int queryLimit;
 
 @end

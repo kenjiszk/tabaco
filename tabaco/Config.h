@@ -12,5 +12,7 @@
 
 + (NSString *) getApplicationId;
 + (NSString *) getClientKey;
++ (NSString *) getNendID;
++ (NSString *) getSpotID;
 
 @end

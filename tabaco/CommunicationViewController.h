@@ -30,4 +30,10 @@
 
 @property int queryLimit;
 
+@property NSTimer *tm;
+
+@property MBProgressHUD *hud;
+
+@property int isTimerRunning;
+
 @end

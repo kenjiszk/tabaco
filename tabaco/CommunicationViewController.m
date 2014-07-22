@@ -46,38 +46,70 @@
     
     _defaultFieldY = _communicationView.frame.origin.y;
     
-    MBProgressHUD *hud;
     if ([_commentsArray count] > 0) {
         [_tableView reloadData];
         NSIndexPath* indexPath = [NSIndexPath indexPathForRow:[_commentsArray count]-1 inSection:0];
         [_tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
     } else {
-        hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.labelText = @"Wait a Moment...";
+        _hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        _hud.labelText = @"Wait a Moment...";
         //hud.margin = 0;
         //hud.labelFont = [UIFont fontWithName:@"HelveticaNeue-Thin" size:15];
     }
     
-    _queryLimit = 1000;
+    [self reloadCommentMethod];
     
-    PFQuery *commentQuery = [PFQuery queryWithClassName:@"Comments"];
-    [commentQuery orderByDescending:@"updatedAt"];
-    commentQuery.limit = _queryLimit;
-    [commentQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
-        if(!error){
-            [hud hide:YES];
-            _commentsArray = [[objects reverseObjectEnumerator] allObjects];
-            [_tableView reloadData];
-            NSIndexPath* indexPath = [NSIndexPath indexPathForRow:[_commentsArray count]-1 inSection:0];
-            [_tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
-        }
-    }];
+    _isTimerRunning = 0;
+    _tm = [NSTimer
+           scheduledTimerWithTimeInterval:10.0f
+           target:self
+           selector:@selector(reloadComment:)
+           userInfo:nil
+           repeats:YES
+           ];
+}
+
+-(void)reloadComment:(NSTimer*)timer{
+    [self reloadCommentMethod];
+}
+
+-(void)reloadCommentMethod
+{
+    if (_isTimerRunning != 1) {
+        _isTimerRunning = 1;
+        _queryLimit = 1000;
+        
+        PFQuery *commentQuery = [PFQuery queryWithClassName:@"Comments"];
+        [commentQuery orderByDescending:@"updatedAt"];
+        commentQuery.limit = _queryLimit;
+        [commentQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+            if(!error){
+                [_hud hide:YES];
+                _commentsArray = [[objects reverseObjectEnumerator] allObjects];
+                [_tableView reloadData];
+                
+                CGPoint offset =  _tableView.contentOffset;
+                NSLog(@"%f %f %f", _tableView.contentSize.height, offset.y, _tableView.contentSize.height - offset.y - _tableView.frame.size.height);
+                if (_tableView.contentSize.height - offset.y - _tableView.frame.size.height < 100) {
+                    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:[_commentsArray count]-1
+                                                                inSection:0];
+                    [_tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+                }
+                _isTimerRunning = 0;
+            }
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) viewWillDisappear:(BOOL)animated
+{
+    [_tm invalidate];
 }
 
 /*

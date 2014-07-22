@@ -44,7 +44,16 @@
     [self.smokeButton addTarget:self action:@selector(smokeTabaco:) forControlEvents:UIControlEventTouchDown];
     
     [self updateLabel];
-    
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
     // コメント掲示板用のデータ先読み in background
     _queryLimit = 1000;
     PFQuery *commentQuery = [PFQuery queryWithClassName:@"Comments"];
@@ -56,12 +65,6 @@
             _commentsArray = [[objects reverseObjectEnumerator] allObjects];
         }
     }];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)showTaxAlert:(id)sender

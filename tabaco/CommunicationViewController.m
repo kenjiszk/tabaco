@@ -276,7 +276,7 @@
     }
     cell.textLabel.numberOfLines = 0;
     // 調整のために改行いくつか入れる
-    cell.textLabel.text = [NSString stringWithFormat:@"\n%@\n\n", [_commentsArray objectAtIndex:indexPath.row][@"comment"]];
+    cell.textLabel.text = [NSString stringWithFormat:@"\n%@\n\n\n", [_commentsArray objectAtIndex:indexPath.row][@"comment"]];
     
     // get cell height
     CGSize bounds = CGSizeMake(tableView.frame.size.width, tableView.frame.size.height);
